@@ -1,0 +1,29 @@
+<h1>Scan History</h1>
+
+<table>
+
+<tr>
+
+<th>Website</th>
+
+<th>Result</th>
+
+<th>Date</th>
+
+</tr>
+
+{% for row in history %}
+
+<tr>
+
+<td>{{ row.url }}</td>
+
+<td>{{ row.result }}</td>
+
+<td>{{ row.date }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>

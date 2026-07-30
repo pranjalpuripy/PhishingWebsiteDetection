@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ===========================================================
    CyberShield AI - Professional Stylesheet
    =========================================================== */
@@ -1052,3 +1053,78 @@ nav ul{
 /* ===========================================================
    END OF STYLESHEET
 =========================================================== */
+=======
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5f7fa;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#1f2937;
+    color:white;
+    padding:15px 40px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+.hero{
+    text-align:center;
+    margin-top:60px;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+input{
+    width:320px;
+    padding:12px;
+    margin:10px;
+}
+
+.card{
+    width:250px;
+    background:white;
+    padding:20px;
+    margin:20px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+    display:inline-block;
+}
+
+table{
+    width:90%;
+    margin:auto;
+    border-collapse:collapse;
+}
+
+table,th,td{
+    border:1px solid #ccc;
+}
+
+th,td{
+    padding:12px;
+    text-align:center;
+}
+>>>>>>> 1a98e2dad18902e889e71e23827ec9261e55a109

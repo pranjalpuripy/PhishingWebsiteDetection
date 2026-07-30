@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,3 +42,26 @@
 
 </body>
 </html>
+=======
+<h1>Prediction Result</h1>
+
+<p><strong>Website:</strong> {{ url }}</p>
+
+{% if prediction=="Phishing" %}
+
+<h2 style="color:red;">
+⚠ Phishing Website
+</h2>
+
+{% else %}
+
+<h2 style="color:green;">
+✅ Legitimate Website
+</h2>
+
+{% endif %}
+
+<a href="/scan">
+<button>Scan Another</button>
+</a>
+>>>>>>> 1a98e2dad18902e889e71e23827ec9261e55a109

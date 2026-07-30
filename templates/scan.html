@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Website | CyberShield AI</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+
+<div class="scan-section">
+
+    <div class="scan-card">
+
+        <img src="{{ url_for('static', filename='images/scan.png') }}" class="scan-image">
+
+        <h1>Scan Website</h1>
+
+        <p>Enter a Website URL to detect phishing.</p>
+
+        <form action="/scan" method="POST">
+
+            <input
+                type="text"
+                name="url"
+                class="scan-input"
+                placeholder="https://example.com"
+                required>
+
+            <button class="scan-btn" type="submit">
+                Scan Website
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

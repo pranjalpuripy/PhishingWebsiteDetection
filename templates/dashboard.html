@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield AI | Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar Starts -->
+    <div class="sidebar">
+
+        <div class="logo">
+
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+
+            <h2>CyberShield AI</h2>
+
+        </div>
+
+        <ul>
+
+            <li class="active">
+                <i class="fas fa-house"></i>
+                Dashboard
+            </li>
+
+            <li>
+                <a href="/scan">
+                    <i class="fas fa-globe"></i>
+                    Scan Website
+                </a>
+            </li>
+
+            <li>
+                <a href="/history">
+                    <i class="fas fa-clock-rotate-left"></i>
+                    History
+                </a>
+            </li>
+
+            <li>
+                <a href="/about">
+                    <i class="fas fa-circle-info"></i>
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="/">
+                    <i class="fas fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+    <!-- Sidebar Ends -->
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <div class="topbar">
+
+            <div>
+
+                <h1>Welcome to CyberShield AI</h1>
+
+                <p>
+                    AI Powered Phishing Website Detection Dashboard
+                </p>
+
+            </div>
+
+            <div class="profile">
+
+                <i class="fas fa-bell"></i>
+
+                <img src="{{ url_for('static', filename='images/shield.png') }}">
+
+            </div>
+
+        </div>
+                <!-- Statistics Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <i class="fas fa-globe"></i>
+                <h2>125</h2>
+                <p>Total Websites Scanned</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-shield-check"></i>
+                <h2>108</h2>
+                <p>Safe Websites</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-triangle-exclamation"></i>
+                <h2>17</h2>
+                <p>Phishing Detected</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <h2>98%</h2>
+                <p>AI Accuracy</p>
+            </div>
+
+        </div>
+
+        <!-- Scan Section -->
+
+        <div class="scan-box">
+
+            <h2>
+                <i class="fas fa-magnifying-glass"></i>
+                Scan a Website
+            </h2>
+
+            <p>
+                Enter any website URL below and let our AI detect whether it is Safe or Phishing.
+            </p>
+
+            <form action="/scan" method="POST">
+
+                <input
+                    type="text"
+                    name="url"
+                    placeholder="https://example.com"
+                    required
+                >
+
+                <button type="submit">
+                    <i class="fas fa-shield-halved"></i>
+                    Scan Website
+                </button>
+
+            </form>
+
+        </div>
+                <!-- ================= AI STATUS & HISTORY ================= -->
+
+        <div class="dashboard-bottom">
+
+            <!-- AI Status -->
+
+            <div class="ai-status">
+
+                <h2>
+                    <i class="fas fa-robot"></i>
+                    AI System Status
+                </h2>
+
+                <div class="status-item">
+                    <span>Machine Learning Model</span>
+                    <span class="status active">ACTIVE 🟢</span>
+                </div>
+
+                <div class="status-item">
+                    <span>Database</span>
+                    <span class="status active">CONNECTED 🟢</span>
+                </div>
+
+                <div class="status-item">
+                    <span>Last Updated</span>
+                    <span>Today</span>
+                </div>
+
+                <div class="status-item">
+                    <span>Detection Accuracy</span>
+                    <span>98%</span>
+                </div>
+
+            </div>
+
+            <!-- Scan History -->
+
+            <div class="history-table">
+
+                <h2>
+                    <i class="fas fa-clock-rotate-left"></i>
+                    Recent Scan History
+                </h2>
+
+                <table>
+
+                    <tr>
+                        <th>Website</th>
+                        <th>Status</th>
+                        <th>Risk</th>
+                    </tr>
+
+                    <tr>
+                        <td>google.com</td>
+                        <td style="color:#00ff88;">Safe</td>
+                        <td>2%</td>
+                    </tr>
+
+                    <tr>
+                        <td>facebook.com</td>
+                        <td style="color:#00ff88;">Safe</td>
+                        <td>4%</td>
+                    </tr>
+
+                    <tr>
+                        <td>fake-paytm-login.com</td>
+                        <td style="color:#ff4d4d;">Phishing</td>
+                        <td>97%</td>
+                    </tr>
+
+                    <tr>
+                        <td>secure-bank-login.xyz</td>
+                        <td style="color:#ff4d4d;">Phishing</td>
+                        <td>95%</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 CyberShield AI | Phishing Website Detection System
+            </p>
+
+        </footer>
+
+    </div>
+
+</div>
+
+</body>
+</html>

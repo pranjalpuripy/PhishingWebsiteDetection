@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Result | CyberShield AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="result-section">
+
+    <div class="result-card">
+
+         <img src="{{ url_for('static', filename='images/' + image) }}"
+             class="result-image"
+             alt="Result">
+
+        
+        <h1>Scan Result</h1>
+
+        <h3>Website:</h3>
+
+        <p>{{ website }}</p>
+
+        <h2>{{ prediction }}</h2>
+
+        <br>
+
+        <a href="/scan" class="form-btn">
+            Scan Another Website
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

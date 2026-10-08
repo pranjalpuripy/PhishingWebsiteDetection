@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
 <head>
     <meta charset="UTF-8">
@@ -8,207 +7,392 @@
 
     <title>CyberShield AI | Phishing Website Detection</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-=======
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishing Website Detection</title>
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
->>>>>>> 1a98e2dad18902e889e71e23827ec9261e55a109
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
 
-<<<<<<< HEAD
-<!-- ========================= NAVBAR ========================= -->
+    <!-- ========================= NAVBAR ========================= -->
 
-<nav>
+    <nav class="navbar">
 
-    <div class="logo">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="CyberShield AI Logo">
 
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            <span>CyberShield AI</span>
+        </div>
 
-        <span>CyberShield AI</span>
+        <ul class="nav-links">
+            <li>
+                <a href="/" class="active">Home</a>
+            </li>
 
-    </div>
+            <li>
+                <a href="/about">About</a>
+            </li>
 
-    <ul>
+            <li>
+                <a href="/login">Login</a>
+            </li>
 
-        <li><a href="/">Home</a></li>
+            <li>
+                <a href="/register" class="nav-register">Register</a>
+            </li>
+        </ul>
 
-        <li><a href="/about">About</a></li>
+    </nav>
 
-        <li><a href="/login">Login</a></li>
 
-        <li><a href="/register">Register</a></li>
+    <!-- ========================= HERO SECTION ========================= -->
 
-    </ul>
+    <section class="hero">
 
-</nav>
+        <div class="hero-content">
 
-<!-- ========================= HERO SECTION ========================= -->
+            <div class="hero-text">
 
-<section class="hero">
+                <div class="security-badge">
+                    🛡 AI-Powered Website Security
+                </div>
 
-    <div class="left">
+                <h1>
+                    Detect Phishing Websites
+                    <span>Before They Detect You.</span>
+                </h1>
 
-        <h1>
+                <p>
+                    CyberShield AI uses Machine Learning to analyze website
+                    URLs and identify potentially dangerous phishing websites.
+                    Stay protected before sharing your personal information.
+                </p>
 
-            Detect Phishing Websites
+                <div class="hero-buttons">
 
-            <br>
+                    <a href="/scan" class="btn">
+                        🔍 Scan Website
+                    </a>
 
-            <span>Using Artificial Intelligence</span>
+                    <a href="/about" class="btn secondary-btn">
+                        Learn More →
+                    </a>
 
-        </h1>
+                </div>
 
-        <p>
+                <div class="hero-trust">
 
-            CyberShield AI is a Machine Learning based phishing detection
-            system that helps users identify fake websites instantly and
-            protect their personal information.
+                    <div>
+                        <strong>AI</strong>
+                        <span>Powered Detection</span>
+                    </div>
 
-        </p>
+                    <div>
+                        <strong>⚡</strong>
+                        <span>Instant Analysis</span>
+                    </div>
 
-        <a href="/scan" class="btn">
+                    <div>
+                        <strong>🛡</strong>
+                        <span>Security Focused</span>
+                    </div>
 
-            Scan Website
+                </div>
 
-        </a>
+            </div>
 
-    </div>
 
-    <div class="right">
+            <div class="hero-image">
 
-        <img src="{{ url_for('static', filename='images/hero.png') }}"
-             alt="Cyber Security">
+                <div class="hero-glow"></div>
 
-    </div>
+                <img src="{{ url_for('static', filename='images/hero.png') }}"
+                     alt="AI Cyber Security">
 
-</section>
+            </div>
 
-<!-- ========================= FEATURES ========================= -->
+        </div>
 
-<section class="features">
+    </section>
 
-<h2 class="section-title">
 
-Our Features
+    <!-- ========================= FEATURES ========================= -->
 
-</h2>
+    <section class="features">
 
-<div class="feature-grid">
-    <!-- Feature 1 -->
+        <div class="section-heading">
 
-<div class="feature-card">
+            <span class="section-label">
+                WHY CYBERSHIELD AI
+            </span>
 
-    <img src="{{ url_for('static', filename='images/ai.png') }}" alt="AI Detection">
+            <h2>
+                Smart Protection Against
+                <span>Online Threats</span>
+            </h2>
 
-    <h3>AI Detection</h3>
+            <p>
+                Powerful features designed to help you identify suspicious
+                websites quickly and make safer decisions online.
+            </p>
 
-    <p>
-        Our Artificial Intelligence model analyzes URLs and identifies phishing websites with high accuracy.
-    </p>
+        </div>
 
-</div>
 
-<!-- Feature 2 -->
+        <div class="feature-grid">
 
-<div class="feature-card">
 
-    <img src="{{ url_for('static', filename='images/scan.png') }}" alt="Instant Scan">
+            <!-- Feature 1 -->
 
-    <h3>Instant Scanning</h3>
+            <div class="feature-card">
 
-    <p>
-        Scan any website within seconds and receive immediate security analysis and recommendations.
-    </p>
+                <div class="feature-icon">
+                    <img src="{{ url_for('static', filename='images/AI.png') }}"
+                         alt="AI Detection">
+                </div>
 
-</div>
+                <h3>AI Detection</h3>
 
-<!-- Feature 3 -->
+                <p>
+                    Our Machine Learning model analyzes website URLs
+                    and predicts whether a website is safe or potentially
+                    phishing.
+                </p>
 
-<div class="feature-card">
+            </div>
 
-    <img src="{{ url_for('static', filename='images/score.png') }}" alt="Risk Score">
 
-    <h3>Risk Score</h3>
+            <!-- Feature 2 -->
 
-    <p>
-        Every scanned website receives a detailed risk score to help users make informed decisions.
-    </p>
+            <div class="feature-card">
 
-</div>
+                <div class="feature-icon">
+                    <img src="{{ url_for('static', filename='images/scan.png') }}"
+                         alt="Instant Scanning">
+                </div>
 
-<!-- Feature 4 -->
+                <h3>Instant Scanning</h3>
 
-<div class="feature-card">
+                <p>
+                    Enter a website URL and receive an immediate security
+                    prediction without complicated steps.
+                </p>
 
-    <img src="{{ url_for('static', filename='images/history.png') }}" alt="History">
+            </div>
 
-    <h3>Scan History</h3>
 
-    <p>
-        Keep track of all scanned websites and review previous reports from your personal dashboard.
-    </p>
+            <!-- Feature 3 -->
 
-</div>
+            <div class="feature-card">
 
-</div>
+                <div class="feature-icon">
+                    <img src="{{ url_for('static', filename='images/score.png') }}"
+                         alt="Risk Score">
+                </div>
 
-</section>
+                <h3>Risk Analysis</h3>
 
-<!-- ================= CALL TO ACTION ================= -->
+                <p>
+                    View the security result of a scanned website and
+                    understand its potential risk level.
+                </p>
 
-<section class="cta">
+            </div>
 
-    <h2>Protect Yourself from Online Phishing Attacks</h2>
 
-    <p>
+            <!-- Feature 4 -->
 
-        Start scanning suspicious websites using CyberShield AI and stay safe on the internet.
+            <div class="feature-card">
 
-    </p>
+                <div class="feature-icon">
+                    <img src="{{ url_for('static', filename='images/history.png') }}"
+                         alt="Scan History">
+                </div>
 
-    <a href="/scan" class="btn">
+                <h3>Scan History</h3>
 
-        Start Scanning
+                <p>
+                    Keep track of previously scanned websites and
+                    review your security activity from one place.
+                </p>
 
-    </a>
+            </div>
 
-</section>
-=======
-<nav>
-    <h2>Phishing Detector</h2>
+        </div>
 
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Register</a></li>
-    </ul>
-</nav>
+    </section>
 
-<section class="hero">
 
-    <img src="{{ url_for('static', filename='images/phishing.png') }}" width="350">
+    <!-- ========================= HOW IT WORKS ========================= -->
 
-    <h1>Phishing Website Detection System</h1>
+    <section class="how-it-works">
 
-    <p>
-        Detect phishing websites using Machine Learning.
-    </p>
+        <div class="section-heading">
 
-    <a href="/login">
-        <button>Get Started</button>
-    </a>
+            <span class="section-label">
+                SIMPLE & FAST
+            </span>
 
-</section>
+            <h2>
+                How CyberShield AI
+                <span>Works</span>
+            </h2>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>Enter URL</h3>
+
+                <p>
+                    Enter the website address you want to check.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>AI Analysis</h3>
+
+                <p>
+                    Our Machine Learning model analyzes the submitted URL.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>Get Result</h3>
+
+                <p>
+                    Receive a security prediction and make an informed
+                    decision before visiting the website.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= CALL TO ACTION ========================= -->
+
+    <section class="cta">
+
+        <div class="cta-content">
+
+            <div>
+
+                <span class="section-label">
+                    STAY SAFE ONLINE
+                </span>
+
+                <h2>
+                    Don't Trust a Website
+                    <span>Without Checking.</span>
+                </h2>
+
+                <p>
+                    Use CyberShield AI to analyze suspicious website URLs
+                    before sharing sensitive information.
+                </p>
+
+            </div>
+
+            <a href="/scan" class="btn">
+                🔍 Start Scanning
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= FOOTER ========================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <div class="logo">
+
+                    <img src="{{ url_for('static', filename='images/logo.png') }}"
+                         alt="CyberShield AI Logo">
+
+                    <span>CyberShield AI</span>
+
+                </div>
+
+                <p>
+                    AI-powered phishing website detection system
+                    designed for safer browsing.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>Security</h4>
+
+                <a href="/scan">Scan Website</a>
+                <a href="/about">How It Works</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 CyberShield AI. All rights reserved.
+            </p>
+
+            <p>
+                BCA Academic Project
+            </p>
+
+        </div>
+
+    </footer>
+
 
 </body>
 </html>
->>>>>>> 1a98e2dad18902e889e71e23827ec9261e55a109

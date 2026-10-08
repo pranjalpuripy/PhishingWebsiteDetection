@@ -1,104 +1,126 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CyberShield AI</title>
 
-<title>Login</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 
-<link rel="stylesheet"
-href="{{ url_for('static', filename='css/style.css') }}">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 </head>
 
-<body class="auth-body">
+<body>
 
-<div class="auth-container">
+    <!-- NAVBAR -->
+    <nav class="navbar">
 
-<div class="auth-card">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="CyberShield AI Logo">
 
-    <img src="{{ url_for('static', filename='images/logo.png') }}" class="login-logo">
+            <span>CyberShield AI</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/login" class="active">Login</a></li>
+            <li><a href="/register" class="nav-register">Register</a></li>
+        </ul>
+
+    </nav>
 
 
-<h1>Welcome Back</h1>
+    <!-- LOGIN SECTION -->
+    <section class="login-page">
 
-<p>Login to CyberShield AI</p>
+        <div class="login-card">
 
-<form method="POST">
+            <!-- LOGO -->
+            <div class="login-logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}"
+                     alt="CyberShield AI">
+            </div>
 
-<div class="input-box">
-<i class="fa-solid fa-envelope"></i>
+            <h1>Welcome Back</h1>
 
-<input
-type="email"
-name="email"
-placeholder="Email Address"
-required>
+            <p class="login-subtitle">
+                Login to your CyberShield AI account
+            </p>
 
-</div>
 
-<div class="input-box">
-<i class="fa-solid fa-lock"></i>
+            <!-- LOGIN FORM -->
+            <form method="POST" action="/login">
 
-<input
-type="password"
-name="password"
-placeholder="Password"
-required>
+                <div class="input-box">
 
-</div>
+                    <label for="email">Email Address</label>
 
-<button type="submit" class="btn">
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
 
-<i class="fa-solid fa-right-to-bracket"></i>
+                </div>
 
-Login
 
-</button>
+                <div class="input-box">
 
-</form>
+                    <label for="password">Password</label>
 
-<p class="switch">
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
 
-Don't have an account?
+                </div>
 
-<a href="/register">
 
-Register
+                <button type="submit" class="form-btn">
+                    Login
+                </button>
 
-</a>
+            </form>
 
-</p>
 
-</div>
+            <!-- REGISTER LINK -->
+            <div class="extra-links">
 
-</div>
+                <p>
+                    Don't have an account?
+                    <a href="/register">Create Account</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 CyberShield AI. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
 
 </body>
-
 </html>
-=======
-<h2>Login</h2>
-
-<form action="/login" method="POST">
-
-<input type="email" name="email" placeholder="Email">
-
-<input type="password" name="password" placeholder="Password">
-
-<button type="submit">Login</button>
-
-</form>
-
-<p>
-Don't have an account?
-
-<a href="/register">Register</a>
-</p>
->>>>>>> 1a98e2dad18902e889e71e23827ec9261e55a109

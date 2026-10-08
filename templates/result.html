@@ -1,67 +1,227 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Scan Result | CyberShield AI</title>
+
+
+    <!-- Main CSS -->
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
+
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
 </head>
+
 
 <body>
 
-<div class="result-section">
 
-    <div class="result-card">
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
 
-         <img src="{{ url_for('static', filename='images/' + image) }}"
-             class="result-image"
-             alt="Result">
+    <nav class="navbar">
 
-        
-        <h1>Scan Result</h1>
+        <div class="logo">
 
-        <h3>Website:</h3>
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="CyberShield AI Logo">
 
-        <p>{{ website }}</p>
+            <span>
+                CyberShield AI
+            </span>
 
-        <h2>{{ prediction }}</h2>
+        </div>
 
-        <br>
 
-        <a href="/scan" class="form-btn">
-            Scan Another Website
-        </a>
+        <ul class="nav-links">
 
-    </div>
+            <li>
+                <a href="/dashboard">
+                    Dashboard
+                </a>
+            </li>
 
-</div>
+            <li>
+                <a href="/scan">
+                    Scan URL
+                </a>
+            </li>
+
+            <li>
+                <a href="/history">
+                    History
+                </a>
+            </li>
+
+            <li>
+                <a href="/about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="/login">
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         RESULT PAGE
+         ===================================================== -->
+
+    <main class="result-page">
+
+
+        <!-- Result Card -->
+
+        <div class="result-card">
+
+
+            <!-- Result Image -->
+
+            <div class="result-image-container">
+
+                <img
+                    src="{{ url_for('static', filename='images/' + image) }}"
+                    class="result-image"
+                    alt="Scan Result"
+                >
+
+            </div>
+
+
+
+            <!-- Heading -->
+
+            <div class="result-badge">
+                🛡️ AI SECURITY ANALYSIS
+            </div>
+
+
+            <h1>
+                Scan Result
+            </h1>
+
+
+
+            <!-- Website -->
+
+            <div class="result-website">
+
+                <span class="result-label">
+                    Website Scanned
+                </span>
+
+                <div class="website-url">
+                    {{ website }}
+                </div>
+
+            </div>
+
+
+
+            <!-- Prediction -->
+
+            <div class="result-status
+                {% if 'SAFE' in prediction %}
+                    safe-result
+                {% else %}
+                    phishing-result
+                {% endif %}
+            ">
+
+                {{ prediction }}
+
+            </div>
+
+
+
+            <!-- Message -->
+
+            {% if 'SAFE' in prediction %}
+
+                <p class="result-message">
+                    This website appears to be safe according
+                    to the AI phishing detection model.
+                </p>
+
+            {% else %}
+
+                <p class="result-message">
+                    This website appears to be potentially
+                    dangerous or phishing. Avoid entering
+                    personal or sensitive information.
+                </p>
+
+            {% endif %}
+
+
+
+            <!-- Action Buttons -->
+
+            <div class="result-actions">
+
+                <a href="/scan"
+                   class="result-primary-btn">
+
+                    🔍 Scan Another Website
+
+                </a>
+
+
+                <a href="/dashboard"
+                   class="result-secondary-btn">
+
+                    ← Back to Dashboard
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 CyberShield AI. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
 
 </body>
+
 </html>
-=======
-<h1>Prediction Result</h1>
-
-<p><strong>Website:</strong> {{ url }}</p>
-
-{% if prediction=="Phishing" %}
-
-<h2 style="color:red;">
-⚠ Phishing Website
-</h2>
-
-{% else %}
-
-<h2 style="color:green;">
-✅ Legitimate Website
-</h2>
-
-{% endif %}
-
-<a href="/scan">
-<button>Scan Another</button>
-</a>
->>>>>>> 1a98e2dad18902e889e71e23827ec9261e55a109

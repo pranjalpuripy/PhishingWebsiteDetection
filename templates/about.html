@@ -1,26 +1,396 @@
-<h1>About Project</h1>
+<!DOCTYPE html>
 
-<p>
+<html lang="en">
 
-This project detects phishing websites using Machine Learning.
-The system analyzes a URL and predicts whether it is safe or malicious.
+<head>
 
-</p>
+```
+<meta charset="UTF-8">
 
-<h3>Technology Used</h3>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<ul>
+<title>About | CyberShield AI</title>
 
-<li>Python</li>
+<!-- Main CSS -->
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
 
-<li>Flask</li>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+```
 
-<li>HTML</li>
+</head>
 
-<li>CSS</li>
+<body>
 
-<li>JavaScript</li>
+```
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
 
-<li>Machine Learning</li>
+<nav class="navbar">
 
-</ul>
+    <div class="logo">
+
+        <img src="{{ url_for('static', filename='images/logo.png') }}"
+             alt="CyberShield AI Logo">
+
+        <span>
+            CyberShield AI
+        </span>
+
+    </div>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="/dashboard">
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="/scan">
+                Scan URL
+            </a>
+        </li>
+
+        <li>
+            <a href="/history">
+                History
+            </a>
+        </li>
+
+        <li>
+            <a href="/about" class="active">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =====================================================
+     ABOUT PAGE
+     ===================================================== -->
+
+<main class="about-page">
+
+
+    <!-- HERO SECTION -->
+
+    <section class="about-hero">
+
+        <div class="about-badge">
+            🛡️ AI-Powered Security
+        </div>
+
+        <h1>
+            About CyberShield AI
+        </h1>
+
+        <p>
+            CyberShield AI is a Machine Learning based
+            phishing website detection system designed to
+            analyze website URLs and identify potentially
+            dangerous websites.
+        </p>
+
+    </section>
+
+
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="about-section">
+
+        <div class="about-card">
+
+            <div class="about-card-icon">
+                🔐
+            </div>
+
+            <h2>
+                Project Overview
+            </h2>
+
+            <p>
+                Phishing attacks are a common cybersecurity
+                threat where attackers create fake websites
+                to steal sensitive information such as
+                usernames, passwords and banking details.
+            </p>
+
+            <p>
+                CyberShield AI analyzes the characteristics
+                of a submitted URL and uses a trained
+                Machine Learning model to predict whether
+                the website is likely to be safe or phishing.
+            </p>
+
+        </div>
+
+
+        <!-- HOW IT WORKS -->
+
+        <div class="about-card">
+
+            <div class="about-card-icon">
+                🤖
+            </div>
+
+            <h2>
+                How It Works
+            </h2>
+
+            <div class="about-steps">
+
+                <div class="about-step">
+
+                    <span>
+                        01
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Enter URL
+                        </h3>
+
+                        <p>
+                            The user enters a website URL
+                            into the scanning system.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-step">
+
+                    <span>
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Analyze URL
+                        </h3>
+
+                        <p>
+                            The system processes the URL
+                            using Machine Learning techniques.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-step">
+
+                    <span>
+                        03
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Detection Result
+                        </h3>
+
+                        <p>
+                            The system displays whether the
+                            website is classified as Safe
+                            or Phishing.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- TECHNOLOGY SECTION -->
+
+    <section class="about-section">
+
+        <div class="about-card technology-card">
+
+            <div class="about-card-icon">
+                💻
+            </div>
+
+            <h2>
+                Technology Used
+            </h2>
+
+            <div class="technology-grid">
+
+                <div class="technology-item">
+                    <span>🐍</span>
+                    <p>Python</p>
+                </div>
+
+                <div class="technology-item">
+                    <span>🌐</span>
+                    <p>Flask</p>
+                </div>
+
+                <div class="technology-item">
+                    <span>📄</span>
+                    <p>HTML</p>
+                </div>
+
+                <div class="technology-item">
+                    <span>🎨</span>
+                    <p>CSS</p>
+                </div>
+
+                <div class="technology-item">
+                    <span>⚡</span>
+                    <p>JavaScript</p>
+                </div>
+
+                <div class="technology-item">
+                    <span>🤖</span>
+                    <p>Machine Learning</p>
+                </div>
+
+                <div class="technology-item">
+                    <span>🗄️</span>
+                    <p>SQLite</p>
+                </div>
+
+                <div class="technology-item">
+                    <span>📊</span>
+                    <p>Scikit-learn</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FEATURES -->
+
+    <section class="about-section">
+
+        <div class="about-card">
+
+            <div class="about-card-icon">
+                ✨
+            </div>
+
+            <h2>
+                Key Features
+            </h2>
+
+            <ul class="feature-list">
+
+                <li>
+                    🔎 AI-based URL scanning
+                </li>
+
+                <li>
+                    🛡️ Safe and phishing classification
+                </li>
+
+                <li>
+                    📋 Scan history tracking
+                </li>
+
+                <li>
+                    📊 Dynamic dashboard statistics
+                </li>
+
+                <li>
+                    👤 User registration and login
+                </li>
+
+                <li>
+                    💻 Simple and user-friendly interface
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- PURPOSE -->
+
+        <div class="about-card">
+
+            <div class="about-card-icon">
+                🎯
+            </div>
+
+            <h2>
+                Project Objective
+            </h2>
+
+            <p>
+                The main objective of CyberShield AI is to
+                provide a simple security tool that helps
+                users identify potentially phishing websites
+                before interacting with them.
+            </p>
+
+            <p>
+                The project also demonstrates how Python,
+                Flask, Machine Learning and database
+                technologies can be combined to build a
+                practical cybersecurity application.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 CyberShield AI. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+```
+
+</body>
+
+</html>

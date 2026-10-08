@@ -1,29 +1,292 @@
-<h1>Scan History</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<table>
+<head>
 
-<tr>
+    <meta charset="UTF-8">
 
-<th>Website</th>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<th>Result</th>
+    <title>Scan History | CyberShield AI</title>
 
-<th>Date</th>
 
-</tr>
+    <!-- Main CSS -->
 
-{% for row in history %}
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 
-<tr>
 
-<td>{{ row.url }}</td>
+    <!-- Google Font -->
 
-<td>{{ row.result }}</td>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
-<td>{{ row.date }}</td>
+</head>
 
-</tr>
 
-{% endfor %}
+<body>
 
-</table>
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="CyberShield AI Logo">
+
+            <span>
+                CyberShield AI
+            </span>
+
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/dashboard">
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/scan">
+                    Scan URL
+                </a>
+            </li>
+
+            <li>
+                <a href="/history"
+                   class="active">
+                    History
+                </a>
+            </li>
+
+            <li>
+                <a href="/about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout">
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HISTORY PAGE
+         ===================================================== -->
+
+    <main class="history-page">
+
+
+        <!-- Page Header -->
+
+        <div class="history-header">
+
+            <div class="history-badge">
+                📋 SCAN ACTIVITY
+            </div>
+
+
+            <h1>
+                Scan History
+            </h1>
+
+
+            <p>
+                View the websites you have previously scanned
+                using CyberShield AI.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             HISTORY CARD
+             ================================================= -->
+
+        <div class="history-card">
+
+
+            {% if scans %}
+
+
+                <!-- Table -->
+
+                <div class="history-table-wrapper">
+
+                    <table class="history-table">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    #
+                                </th>
+
+                                <th>
+                                    Website
+                                </th>
+
+                                <th>
+                                    Result
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            {% for scan in scans %}
+
+                            <tr>
+
+
+                                <!-- ID -->
+
+                                <td class="scan-id">
+                                    {{ loop.index }}
+                                </td>
+
+
+                                <!-- Website -->
+
+                                <td class="scan-website">
+
+                                    <span>
+                                        🔗
+                                    </span>
+
+                                    {{ scan[1] }}
+
+                                </td>
+
+
+                                <!-- Result -->
+
+                                <td>
+
+                                    {% if scan[2] == "SAFE" %}
+
+                                        <span class="history-status safe-status">
+                                            🟢 Safe
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="history-status phishing-status">
+                                            🔴 Phishing
+                                        </span>
+
+                                    {% endif %}
+
+                                </td>
+
+
+                                <!-- Date -->
+
+                                <td class="scan-date">
+                                    {{ scan[3] }}
+                                </td>
+
+
+                            </tr>
+
+                            {% endfor %}
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            {% else %}
+
+
+                <!-- Empty History -->
+
+                <div class="empty-history">
+
+
+                    <div class="empty-history-icon">
+                        📋
+                    </div>
+
+
+                    <h2>
+                        No Scan History
+                    </h2>
+
+
+                    <p>
+                        You haven't scanned any websites yet.
+                        Start your first security scan now.
+                    </p>
+
+
+                    <a href="/scan"
+                       class="history-scan-btn">
+
+                        🔍 Scan a Website
+
+                    </a>
+
+
+                </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 CyberShield AI. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

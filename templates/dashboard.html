@@ -1,278 +1,482 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberShield AI | Dashboard</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Dashboard | CyberShield AI</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
 
-<div class="dashboard">
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
 
-    <!-- Sidebar Starts -->
-    <div class="sidebar">
+    <nav class="navbar">
 
         <div class="logo">
 
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="CyberShield AI Logo">
 
-            <h2>CyberShield AI</h2>
+            <span>CyberShield AI</span>
 
         </div>
 
-        <ul>
 
-            <li class="active">
-                <i class="fas fa-house"></i>
-                Dashboard
+        <ul class="nav-links">
+
+            <li>
+                <a href="/dashboard" class="active">
+                    Dashboard
+                </a>
             </li>
 
             <li>
                 <a href="/scan">
-                    <i class="fas fa-globe"></i>
-                    Scan Website
+                    Scan URL
                 </a>
             </li>
 
             <li>
                 <a href="/history">
-                    <i class="fas fa-clock-rotate-left"></i>
                     History
                 </a>
             </li>
 
             <li>
                 <a href="/about">
-                    <i class="fas fa-circle-info"></i>
                     About
                 </a>
             </li>
 
             <li>
-                <a href="/">
-                    <i class="fas fa-right-from-bracket"></i>
+                <a href="/logout">
                     Logout
                 </a>
             </li>
 
         </ul>
 
-    </div>
-    <!-- Sidebar Ends -->
+    </nav>
 
-    <!-- Main Content -->
-    <div class="main-content">
 
-        <div class="topbar">
+    <!-- =====================================================
+         DASHBOARD HEADER
+         ===================================================== -->
+
+    <section class="dashboard">
+
+        <div class="dashboard-header">
 
             <div>
 
-                <h1>Welcome to CyberShield AI</h1>
+                <p class="dashboard-welcome">
+                    Welcome to CyberShield AI
+                </p>
 
-                <p>
-                    AI Powered Phishing Website Detection Dashboard
+                <h1>
+                    Phishing Detection Dashboard
+                </h1>
+
+                <p class="dashboard-description">
+                    Analyze suspicious URLs and identify potential
+                    phishing websites using our AI-based detection system.
                 </p>
 
             </div>
 
-            <div class="profile">
 
-                <i class="fas fa-bell"></i>
+            <div class="dashboard-action">
 
-                <img src="{{ url_for('static', filename='images/shield.png') }}">
+                <a href="/scan" class="btn">
+                    Scan a Website
+                </a>
 
             </div>
 
         </div>
-                <!-- Statistics Cards -->
-        <div class="cards">
 
-            <div class="card">
-                <i class="fas fa-globe"></i>
-                <h2>125</h2>
-                <p>Total Websites Scanned</p>
+
+        <!-- =================================================
+             STATISTICS
+             ================================================= -->
+
+        <div class="dashboard-stats">
+
+
+            <!-- Total Scans -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🔍
+                </div>
+
+                <div class="stat-info">
+
+                    <h2>
+                        {{ total_scans }}
+                    </h2>
+
+                    <p>
+                        Total Scans
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="card">
-                <i class="fas fa-shield-check"></i>
-                <h2>108</h2>
-                <p>Safe Websites</p>
+
+            <!-- Safe Websites -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🛡️
+                </div>
+
+                <div class="stat-info">
+
+                    <h2>
+                        {{ safe_scans }}
+                    </h2>
+
+                    <p>
+                        Safe Websites
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="card">
-                <i class="fas fa-triangle-exclamation"></i>
-                <h2>17</h2>
-                <p>Phishing Detected</p>
+
+            <!-- Dangerous Websites -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⚠️
+                </div>
+
+                <div class="stat-info">
+
+                    <h2>
+                        {{ phishing_scans }}
+                    </h2>
+
+                    <p>
+                        Phishing Websites
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="card">
-                <i class="fas fa-robot"></i>
-                <h2>98%</h2>
-                <p>AI Accuracy</p>
+
+            <!-- Today's Scans -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📊
+                </div>
+
+                <div class="stat-info">
+
+                    <h2>
+                        {{ today_scans }}
+                    </h2>
+
+                    <p>
+                        Today's Scans
+                    </p>
+
+                </div>
+
             </div>
 
         </div>
 
-        <!-- Scan Section -->
 
-        <div class="scan-box">
+        <!-- =================================================
+             QUICK ACTIONS
+             ================================================= -->
 
-            <h2>
-                <i class="fas fa-magnifying-glass"></i>
-                Scan a Website
-            </h2>
+        <div class="dashboard-section">
 
-            <p>
-                Enter any website URL below and let our AI detect whether it is Safe or Phishing.
-            </p>
-
-            <form action="/scan" method="POST">
-
-                <input
-                    type="text"
-                    name="url"
-                    placeholder="https://example.com"
-                    required
-                >
-
-                <button type="submit">
-                    <i class="fas fa-shield-halved"></i>
-                    Scan Website
-                </button>
-
-            </form>
-
-        </div>
-                <!-- ================= AI STATUS & HISTORY ================= -->
-
-        <div class="dashboard-bottom">
-
-            <!-- AI Status -->
-
-            <div class="ai-status">
+            <div class="section-title">
 
                 <h2>
-                    <i class="fas fa-robot"></i>
-                    AI System Status
+                    Quick Actions
                 </h2>
 
-                <div class="status-item">
-                    <span>Machine Learning Model</span>
-                    <span class="status active">ACTIVE 🟢</span>
-                </div>
-
-                <div class="status-item">
-                    <span>Database</span>
-                    <span class="status active">CONNECTED 🟢</span>
-                </div>
-
-                <div class="status-item">
-                    <span>Last Updated</span>
-                    <span>Today</span>
-                </div>
-
-                <div class="status-item">
-                    <span>Detection Accuracy</span>
-                    <span>98%</span>
-                </div>
+                <p>
+                    Choose an option to continue.
+                </p>
 
             </div>
 
-            <!-- Scan History -->
 
-            <div class="history-table">
+            <div class="dashboard-grid">
 
-                <h2>
-                    <i class="fas fa-clock-rotate-left"></i>
-                    Recent Scan History
-                </h2>
 
-                <table>
+                <!-- Scan Website -->
 
-                    <tr>
-                        <th>Website</th>
-                        <th>Status</th>
-                        <th>Risk</th>
-                    </tr>
+                <div class="dashboard-card">
 
-                    <tr>
-                        <td>google.com</td>
-                        <td style="color:#00ff88;">Safe</td>
-                        <td>2%</td>
-                    </tr>
+                    <div class="dashboard-card-icon">
+                        🔎
+                    </div>
 
-                    <tr>
-                        <td>facebook.com</td>
-                        <td style="color:#00ff88;">Safe</td>
-                        <td>4%</td>
-                    </tr>
+                    <h3>
+                        Scan Website
+                    </h3>
 
-                    <tr>
-                        <td>fake-paytm-login.com</td>
-                        <td style="color:#ff4d4d;">Phishing</td>
-                        <td>97%</td>
-                    </tr>
+                    <p>
+                        Enter a URL and check whether the website
+                        is safe or potentially phishing.
+                    </p>
 
-                    <tr>
-                        <td>secure-bank-login.xyz</td>
-                        <td style="color:#ff4d4d;">Phishing</td>
-                        <td>95%</td>
-                    </tr>
+                    <a href="/scan" class="dashboard-link">
+                        Start Scan →
+                    </a>
 
-                </table>
+                </div>
+
+
+                <!-- Scan History -->
+
+                <div class="dashboard-card">
+
+                    <div class="dashboard-card-icon">
+                        📋
+                    </div>
+
+                    <h3>
+                        Scan History
+                    </h3>
+
+                    <p>
+                        View previously scanned websites and
+                        their detection results.
+                    </p>
+
+                    <a href="/history" class="dashboard-link">
+                        View History →
+                    </a>
+
+                </div>
+
+
+                <!-- About System -->
+
+                <div class="dashboard-card">
+
+                    <div class="dashboard-card-icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        About CyberShield AI
+                    </h3>
+
+                    <p>
+                        Learn about the phishing detection system,
+                        its technology and features.
+                    </p>
+
+                    <a href="/about" class="dashboard-link">
+                        Learn More →
+                    </a>
+
+                </div>
 
             </div>
 
         </div>
 
-        <!-- Footer -->
+                <!-- =================================================
+             RECENT SCAN ACTIVITY
+             ================================================= -->
 
-        <footer class="dashboard-footer">
+        <div class="dashboard-section">
+
+            <div class="section-title">
+
+                <h2>
+                    Recent Scan Activity
+                </h2>
+
+                <p>
+                    Your latest website scan results.
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card recent-scans-card">
+
+                {% if recent_scans %}
+
+                <div class="recent-scans-table">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Website
+                                </th>
+
+                                <th>
+                                    Result
+                                </th>
+
+                                <th>
+                                    Scan Date
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for scan in recent_scans %}
+
+                            <tr>
+
+                                <td class="website-name">
+                                    {{ scan[0] }}
+                                </td>
+
+
+                                <td>
+
+                                    {% if scan[1] == "SAFE" %}
+
+                                    <span class="scan-status safe">
+                                        🛡️ SAFE
+                                    </span>
+
+                                    {% else %}
+
+                                    <span class="scan-status phishing">
+                                        ⚠️ PHISHING
+                                    </span>
+
+                                    {% endif %}
+
+                                </td>
+
+
+                                <td>
+                                    {{ scan[2] }}
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                {% else %}
+
+                <div class="no-scans">
+
+                    <div class="no-scans-icon">
+                        🔍
+                    </div>
+
+                    <h3>
+                        No Scans Yet
+                    </h3>
+
+                    <p>
+                        Start scanning websites to see your
+                        recent scan activity here.
+                    </p>
+
+                    <a href="/scan" class="dashboard-link">
+                        Scan a Website →
+                    </a>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SECURITY TIPS
+             ================================================= -->
+
+        <div class="security-tips">
+
+            <div class="security-tips-content">
+
+                <div class="security-tip-icon">
+                    🔐
+                </div>
+
+                <div>
+
+                    <h2>
+                        Stay Safe Online
+                    </h2>
+
+                    <p>
+                        Always verify website URLs before entering
+                        passwords, banking details or other sensitive
+                        information.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <div class="footer-bottom">
 
             <p>
-                © 2026 CyberShield AI | Phishing Website Detection System
+                © 2026 CyberShield AI. All Rights Reserved.
             </p>
 
-        </footer>
+        </div>
 
-    </div>
-
-</div>
+    </footer>
 
 </body>
+
 </html>
-=======
-<h1>Welcome {{ username }}</h1>
-
-<div class="cards">
-
-<div class="card">
-<h2>Scan Website</h2>
-<a href="/scan">Open</a>
-</div>
-
-<div class="card">
-<h2>History</h2>
-<a href="/history">View</a>
-</div>
-
-<div class="card">
-<h2>About</h2>
-<a href="/about">Read</a>
-</div>
-
-</div>
->>>>>>> 1a98e2dad18902e889e71e23827ec9261e55a109

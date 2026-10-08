@@ -1,64 +1,349 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scan Website | CyberShield AI</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Scan URL | CyberShield AI</title>
+
+
+    <!-- Main CSS -->
 
     <link rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}">
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
 </head>
+
 
 <body>
 
 
-<div class="scan-section">
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
 
-    <div class="scan-card">
+    <nav class="navbar">
 
-        <img src="{{ url_for('static', filename='images/scan.png') }}" class="scan-image">
 
-        <h1>Scan Website</h1>
+        <!-- Logo -->
 
-        <p>Enter a Website URL to detect phishing.</p>
+        <div class="logo">
 
-        <form action="/scan" method="POST">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="CyberShield AI Logo">
 
-            <input
-                type="text"
-                name="url"
-                class="scan-input"
-                placeholder="https://example.com"
-                required>
+            <span>
+                CyberShield AI
+            </span>
 
-            <button class="scan-btn" type="submit">
-                Scan Website
-            </button>
+        </div>
 
-        </form>
 
-    </div>
 
-</div>
+        <!-- Navigation -->
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/dashboard">
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/scan"
+                   class="active">
+                    Scan URL
+                </a>
+            </li>
+
+            <li>
+                <a href="/history">
+                    History
+                </a>
+            </li>
+
+            <li>
+                <a href="/about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout">
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         SCAN PAGE
+         ===================================================== -->
+
+    <main class="scan-page">
+
+
+        <!-- Page Heading -->
+
+        <div class="scan-header">
+
+            <div class="scan-badge">
+                🛡️ AI SECURITY SCANNER
+            </div>
+
+
+            <h1>
+                Check a Website for Phishing
+            </h1>
+
+
+            <p>
+                Enter a website URL below and CyberShield AI
+                will analyze it using our AI-based phishing
+                detection system.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SCAN CARD
+             ================================================= -->
+
+        <div class="scan-card">
+
+
+            <!-- Shield Icon -->
+
+            <div class="scan-icon">
+
+                <img src="{{ url_for('static', filename='images/logo.png') }}"
+                     alt="CyberShield AI">
+
+            </div>
+
+
+
+            <h2>
+                Enter Website URL
+            </h2>
+
+
+            <p class="scan-card-description">
+                Make sure you enter the complete website URL,
+                including <strong>https://</strong> if available.
+            </p>
+
+
+
+            <!-- =================================================
+                 SCAN FORM
+                 ================================================= -->
+
+            <form method="POST"
+                  action="/scan"
+                  class="scan-form">
+
+
+                <label for="url">
+                    Website URL
+                </label>
+
+
+                <div class="url-input-wrapper">
+
+
+                    <span class="url-icon">
+                        🔗
+                    </span>
+
+
+                    <input
+                        type="url"
+                        id="url"
+                        name="url"
+                        placeholder="https://example.com"
+                        required
+                    >
+
+
+                </div>
+
+
+
+                <button type="submit"
+                        class="scan-btn">
+
+                    🔍 Scan Website
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- Security Message -->
+
+            <div class="scan-security-message">
+
+                <span>
+                    🔒
+                </span>
+
+                <p>
+                    Your URL is analyzed securely.
+                    Do not enter passwords or other
+                    sensitive information.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             HOW IT WORKS
+             ================================================= -->
+
+        <section class="scan-how-it-works">
+
+
+            <div class="scan-section-title">
+
+                <h2>
+                    How It Works
+                </h2>
+
+                <p>
+                    CyberShield AI analyzes the submitted URL
+                    and predicts whether it is safe or suspicious.
+                </p>
+
+            </div>
+
+
+
+            <div class="scan-steps">
+
+
+                <!-- Step 1 -->
+
+                <div class="scan-step">
+
+                    <div class="scan-step-number">
+                        01
+                    </div>
+
+                    <div class="scan-step-icon">
+                        🔗
+                    </div>
+
+                    <h3>
+                        Enter URL
+                    </h3>
+
+                    <p>
+                        Enter the website address you want
+                        to check.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Step 2 -->
+
+                <div class="scan-step">
+
+                    <div class="scan-step-number">
+                        02
+                    </div>
+
+                    <div class="scan-step-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        AI Analysis
+                    </h3>
+
+                    <p>
+                        The machine learning model analyzes
+                        the URL characteristics.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Step 3 -->
+
+                <div class="scan-step">
+
+                    <div class="scan-step-number">
+                        03
+                    </div>
+
+                    <div class="scan-step-icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        Get Result
+                    </h3>
+
+                    <p>
+                        The system identifies the URL as
+                        safe or potentially phishing.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 CyberShield AI. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
 
 </body>
+
 </html>
-=======
-<h1>Scan Website</h1>
-
-<form action="/predict" method="POST">
-
-<input
-type="text"
-name="url"
-placeholder="https://example.com"
-required>
-
-<button>
-Scan
-</button>
-
-</form>
->>>>>>> 1a98e2dad18902e889e71e23827ec9261e55a109
